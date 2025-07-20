@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Orbit</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+   <!-- Clouds -->
+  <img src="assets/cloud1.png" class="cloud cloud1" alt="Cloud 1">
+  <img src="assets/cloud2.png" class="cloud cloud2" alt="Cloud 2">
+  
+  <canvas id="particles-canvas"></canvas>
+
+  <div class="popup-container">
+    <div class="popup animated-popup" id="popup">
+      <h1>🎉 Happy 18th Orbit 🎉</h1>
+      <div class="letter" id="letter-text">
+        <p>
+          Happy 18th orbit, bro.</p>
+          <p>New age unlocked, same wild spirit (hopefully a bit wiser too).</p>
+         <p>Wishing you a long life, peaceful days, and everything you’ve been hoping for.</p>
+          <p>Might be a good time to start getting into UTBK mode — no rush, just stay consistent.</p>
+          <p>Try not to sleep too late all the time, your brain deserves proper rest.</p>
+          <p>I got your back as always. Gift’s on the way, just hang in there~
+        </p>
+        <button id="tekanBtn">Tekan aku</button>
+      </div>
+    </div>
+  </div>
+
+<!-- Custom Alert -->
+<div id="custom-alert" class="hidden">
+  <div class="alert-box">
+    🩵 Makasih udah pencet~
+  </div>
+</div>
+
+  <script src="script.js"></script>
+  
+  <audio id="bg-music" src="assets/music.mp3" autoplay loop></audio>
+<script>
+  // Autoplay on load (for some browsers, user interaction might be required)
+  window.addEventListener("load", () => {
+    const music = document.getElementById("bg-music");
+    const playPromise = music.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(err => {
+        console.log("Autoplay prevented. Waiting for user interaction.");
+        document.body.addEventListener("click", () => music.play(), { once: true });
+      });
+    }
+  });
+  
+  document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("tekanBtn");
+  const alertBox = document.getElementById("custom-alert");
+
+  btn.addEventListener("click", () => {
+    alertBox.classList.remove("hidden");
+    alertBox.classList.add("show");
+
+    setTimeout(() => {
+      alertBox.classList.remove("show");
+      alertBox.classList.add("hidden");
+    }, 3000); // Tampilkan 3 detik
+  });
+});
+</script>
+</body>
+</html>

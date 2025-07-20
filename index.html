@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>For You</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="start-page">
+  <div class="clouds">
+    <img src="assets/cloud1.png" class="cloud c1" />
+    <img src="assets/cloud2.png" class="cloud c2" />
+  </div>
+  <div class="centered fade-in">
+    <img src="assets/envelope.png" alt="Open Letter" class="envelope" onclick="openLetter()" />
+    <p>Klik amplop untuk membuka surat 🎁</p>
+  </div>
+
+  <script>
+    function openLetter() {
+      document.body.classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href = "letter.html";
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
